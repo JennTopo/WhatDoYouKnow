@@ -1,0 +1,50 @@
+*,*::before, *::after {
+box-sizing: border-box;
+font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+:root {
+--hue-neutral: 200;
+--hue-wrong: 0;
+--hue-correct: 145;
+}
+
+body {
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color:hsl(var(--hue), 100% 200%);
+}
+
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+/* this is not part of the final design but it is good to know where and what has design
+/*this is the shadow box*/
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.options-button-CSS{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    gap: 10px 20px; 
+    row-gap: 10px;
+    column-gap: 20px;
+}
