@@ -40,11 +40,55 @@ body.wrong {
     box-shadow: 0 0 10px 2px;
 }
 
-.options-button-CSS{
+.options-button-CSS {
     display: flex;
     flex-direction: column;
     gap: 10px;
     gap: 10px 20px; 
     row-gap: 10px;
     column-gap: 20px;
+}
+
+button {
+    --hue: var(--hue-neutral);
+    border: 1pc solid hsl(va(--hue) 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px ;
+    color: white;
+    outline: none;
+}
+
+.button:hover {
+border-color: black;
+}
+
+.button.correct {
+    --hue:var(--hue-correct);
+    color:black;
+}
+
+.button.wrong {
+        --hue:var(--hue-wrong);
+}
+
+.StartQuiz, .Next, .Previous{
+font-size: 1.0rem;
+font-weight: bold;  
+padding: 10px 20px;
+}
+
+.buttonControl{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.hide {
+    display: none;
+    }
+
+.h1 {
+    display: flex;
+    align-content: wrap;
 }
