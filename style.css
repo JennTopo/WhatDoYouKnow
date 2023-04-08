@@ -40,7 +40,7 @@ body.wrong {
     box-shadow: 0 0 10px 2px;
 }
 
-.options-button-CSS {
+.optionsButtonCSS {
     display: flex;
     flex-direction: column;
     gap: 10px;
