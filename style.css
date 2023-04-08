@@ -4,9 +4,9 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 :root {
---hue-neutral: 200;
---hue-wrong: 0;
---hue-correct: 145;
+--hue-neutral: #FFFFFF;
+--hue-wrong: #800000;
+--hue-correct: #800080;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color:hsl(var(--hue), 100% 200%);
+    background-color:var(--hue);
 }
 
 body.correct {
@@ -39,8 +39,8 @@ body.wrong {
     padding: 10px;
     box-shadow: 0 0 10px 2px;
 }
-
-.optionsButtonCSS {
+/* not sure what this is doing*/
+.optionsButtons {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -49,14 +49,16 @@ body.wrong {
     column-gap: 20px;
 }
 
+
 button {
     --hue: var(--hue-neutral);
-    border: 1pc solid hsl(va(--hue) 100%, 30%);
-    background-color: hsl(var(--hue), 100%, 50%);
+    border: 1px solid var((--hue) 0%, 100%);
+    background-color: var(var(--hue-correct), 0%, 100%);
     border-radius: 5px;
     padding: 5px 10px ;
-    color: white;
+    color: black;
     outline: none;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -65,11 +67,12 @@ border-color: black;
 
 .button.correct {
     --hue:var(--hue-correct);
-    color:black;
+    color:purple;
 }
 
 .button.wrong {
         --hue:var(--hue-wrong);
+        color:#800000
 }
 
 .StartQuiz, .Next, .Previous{
@@ -91,4 +94,13 @@ align-items: center;
 .h1 {
     display: flex;
     align-content: wrap;
+}
+
+/*button {
+  padding: 10px;
+  margin: 24px;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: #247BA0;
+  color: white;
 }
