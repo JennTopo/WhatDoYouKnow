@@ -5,7 +5,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 :root {
 --hue-neutral: #FFFFFF;
---hue-wrong: #800000;
+--hue-wrong: plum;
 --hue-correct: #800080;
 }
 
@@ -18,15 +18,15 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color:var(--hue);
-}
+ }
 
-body.correct {
+/* body.correct {
     --hue: var(--hue-correct);
 }
 
 body.wrong {
     --hue: var(--hue-wrong);
+   opacity: 0.6;
 }
 
 /* this is not part of the final design but it is good to know where and what has design
@@ -36,57 +36,60 @@ body.wrong {
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    padding: 12px;
+    box-shadow: 0 0 10px 3px;
 }
-/* not sure what this is doing*/
-.optionsButtons {
+/* this is only the option buttons*/
+.layout {
     display: flex;
     flex-direction: column;
     gap: 10px;
     gap: 10px 20px; 
-    row-gap: 10px;
+    row-gap: 20px;
+    columns: above 10px;
     column-gap: 20px;
+   
 }
-
-
-button {
-    --hue: var(--hue-neutral);
-    border: 1px solid var((--hue) 0%, 100%);
-    background-color: var(var(--hue-correct), 0%, 100%);
-    border-radius: 5px;
+.button {
+    border: 1px solid var(--hue-correct);
+    background-color: var(--hue-correct);    
+    border-radius: 6px;
     padding: 5px 10px ;
-    color: black;
-    outline: none;
+    color: white;
+    outline: var(--hue-correct);
     cursor: pointer;
+    display: flex; /* moves text to the far left of the option */
 }
 
 .button:hover {
-border-color: black;
+border-color: var(--hue-correct);
+opacity: plum;
 }
 
 .button.correct {
-    --hue:var(--hue-correct);
-    color:purple;
-}
+    background-color:var(--hue-correct);
+  }
 
 .button.wrong {
         --hue:var(--hue-wrong);
-        color:#800000
 }
 
-.StartQuiz, .Next, .Previous{
+.startQuizButton{
 font-size: 1.0rem;
 font-weight: bold;  
-padding: 10px 20px;
+padding: 10px 10px;
+cursor: pointer;
+background-color: var(--hue-correct);
+color: var(--hue-neutral);
 }
 
-.buttonControl{
-display: flex;
-justify-content: center;
-align-items: center;
-}
+/* .buttonControl, .add, .subtract{
+    font-size: 1.0rem;
+    font-weight: bold;  
+    padding: 10px 10px;}
+*/
 
+/* this is the form field */
 .hide {
     display: none;
     }
@@ -94,13 +97,4 @@ align-items: center;
 .h1 {
     display: flex;
     align-content: wrap;
-}
-
-/*button {
-  padding: 10px;
-  margin: 24px;
-  cursor: pointer;
-  font-size: 24px;
-  background-color: #247BA0;
-  color: white;
 }
