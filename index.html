@@ -10,25 +10,34 @@
 </head>
 <body>
 <div class= "container">
-        <div id=" QuizContainer" class= "hide">
+        <div id=" QuizContainer" class= "hide"> </div>
         <div id= "Quiz"> Quiz</div>
-    <div id = "optionButtons" class = "optionsButtonCSS">
+    <div id = "optionButtons" class = "layout">
         <button class = "button"> Option 1 </button>
         <button class = "button"> Option 2 </button>
         <button class = "button"> Option 3 </button>
         <button class = "button"> Option 4 </button>
-        <button id=" Previous" class =" Previous Question"> Previous</button>
-        <button id= "Next" class = "Next-Button"> Next </button>
-   </div>
+
 </div>
-    <div class= "ButtonsControl"> 
-        <h1>Coding Quiz Challenge </h1>
-        <p>Try to answer the following questions within the time limit. </p>
-        Keep in mind that incorrect answers will penalize you score time by ten seconds. </p>
-    <button id= "StartQuiz" class = "StartQuizButton"> Start Quiz </button>
-</div>    
+    <div class= "buttonsControls"> 
+        <h1 class=" timer"></h1>
+        <button id= "StartQuiz" class = "startQuizButton"> Start Quiz </button>
+        <button id= "Next" class = "add"> Next </button></div>
+        <button id="Previous" class = "subtract"> Previous </button> 
 </div>
-<div class= "timer">
+
+<div>
+    <div class= "timer">
+    <div id = "countdown" class= "hide"> </div>
+</div>
+
+<form>
+    <input type="text" id="initials" placeholder="Enter initials here" class= "hide"> </div>
+    </form>
+    
+            </div>    
+        </div>
+    </div>
 </div>
 
 </body>
