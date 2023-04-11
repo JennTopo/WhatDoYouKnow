@@ -4,45 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href= "style.css" rel= "stylesheet"> 
+    <link href= "style.css" href= "stylesheet"> 
+    <!---- add new fonts here to keep be the same throughout the website <-->
     <script defer scr= "script.js"></script>
     <title>Quiz</title>
 </head>
 
 <body>
 <div class= "container">
-        <div id=" QuizContainer" class= "hide">
-        <div id= "Quiz"> Quiz</div>
-    <div id = "optionButtons" class = "layout">
-        <button class ="button"> Option 1 </button>
-        <button class = "button"> Option 2 </button>
-        <button class = "button"> Option 3 </button>
-        <button class = "button"> Option 4 </button>
-        <button id= "submit" class = "add total"> Submit </button>
-        <button id="backButton" class = "subtract"> Previous </button> 
-        <button id="clearButton" class = "ClearHighScore"> ClearHighScore </button> 
-    </div>    
-</div>
-
-    <div class= "buttonsControls">
-        <h1 class=" timer"></h1>
-
-<div class ="Start">
-    <button id= "StartQuiz" class = "startQuizButton"> Start Quiz </button>
-</div>
-
-    <div class= "timer">
-    <div id = "countdown" class= "hide"> </div>
-</div>
-
-<form>
-    <input type="text" id="initials" placeholder="Enter initials here" class= "hide"> </div>
-    </form>
-    
-            </div>    
+    <div id=" QuizContainer" class= "hide">
+        <div id= "main" class="flex=column flex=center">
+            <h1>What Do you Know? </h1>
+            <h2> Try to answer the following random questions within the time 
+            limit. Keep in mind the incorrect answers will penalized your score time 
+            by ten seconds! </h2>
+        <a href="/game.html" class ="button">Begin</a>
+        <a href="/highscores.html" id="HighScoresButton"
+        class= "button">HighScore</a>
         </div>
     </div>
-</div>
-
-</body>
-</html>
+    </body>
+</html> 
