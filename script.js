@@ -48,11 +48,26 @@ const SCORE_POINTS = 100 //capitalized so it is know as a fixed point
 const MAX_Questions = 4 // this might change based up time 
 
 // this is the beginning of the game function coding. 
-//Here  is where all the array's and consts that we made are going to start to be used.
-startQuiz = {} => {  
+//Here  is where all the array's and const, that we made are going to start to be used.
+startQuiz = () => {  
     questionCounter = 0
     score = 0
     availableQuestions = [...questions] // here is where you get all the questions in the array
     getNewQuestion()
 }
 //call  out to the getNewQuestions
+getNewQuestion =() =>{
+    if (availableQuestions.length ===0 || questionCounter > MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore,')
+        return window.location.assign('/end.html')
+// here is where I need to add the coding for the minus 10 clock
+// also maybe add the right answer if they answer wrong        
+}
+}
+questionCounter ++
+progressText.InnerText = 'Question',document.querySelector(questionCounter),document(MAX_QUESTIONS)
+progressBarFull.style.width = On((questionCounter/MAX_QUESTIONS) * 100%) // this line will calculate how many questions were answered and calculates the score
+
+const questionIndex = Math.floor(Math, random() * availableQuestions.length) // this is the randomizer
+currentQuestion = availableQuestions(questionIndex) // this keeps track of which question we are being asked 
+question.InnerText = currentQuestion.question // this is what question is being asked 
