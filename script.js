@@ -1,100 +1,58 @@
-// Need to set up some constants so that we can 
-// easily reference and code the JAva Script.
-const startButton = document.getElementById('startQuizButton')
-const StartQuiz= document.getElementById('start quiz button') //const QuizContainerElement= document.getElementById ('QuizContainer')
-const addButton= document.getElementById('add quiz button') //here is where teh next or add button command comes from
-const answerButtonsElement= document.getElementById('answerButton')
+const question = document.querySelector('#question'); // this refs line 36 in the game.html//
+const options = Array.from (document.querySelectorAll('optionsText'));// this refs lines 41,46,51,56 of the game.HTML
+const progressText = document.querySelector('#progressText');//this refs line 20 in the game.html
+const scoreText = document.querySelector("#score"); //this ref the line 32 in the game.html
+const progressBarFull = document.querySelector('#progressBarFull'); //this refs the line 24 in the game.html
 
-//this is the control to click the start button
-startQuizButton.addEventListener('click', startQuizButton)
-
-let shuffledOption, currentOptionIndex
-
-
-//to start the game.this function is related to the START BUTTON// 
-function StartQuiz(){
-//console.log('Started')  //THis is to test if working... it isn't right now
-startQuizButton.classList.add('hide')
-shuffledOption = option.sort(()=> Math.random() -.5) // this shuffles the questions
-currentOptionIndex = 0 // this is where the questions start from 
-optionsButtonElement.classList.remove('hide') // this shows the hidden buttons
-}
-
-//to setup the next question/options//
-function setNextOption(){
-    resetState() //this sets everything back to its default settings
-showOption(shuffledOption[currentOptionIndex])
-}
-// this shows our shuffled questions at the begin of the array
-function showOption(option){
-optionElement.innerText = option.option
-questionElement.forEach(answer => {
-const button = document.createElement('button')
-button.innerText= answer.text
-button.classList.add('button')
-    //this step is to establish a boolean instead of a string when shuffled.
-    if (answer.correct) {
-button.dataset.correct = answer.correct
-    }
-
-    button.addEventListener('click')
-    answerButtonsElement.appendChild(button)
-})
-}
-
-function resetState(){
-    clearStatusClass(document.body)
-    nextButton.classList.add('hide')
-    while( answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild
-    (answerButtonsElement.firstChild)
-}
-}
-
-//to setup the answers//
-function selectAnswers (e){
-    const selectButtons = e.target
-    const correct = selectButtons.dataset.correct
-    setStatusClass(document.body.correct)
-    Array.from(answerButtonElement.children).forEach(button => {
-        setStatusClass(button,button.data)
-    })
-}
-if (shuffledOption.length> currentOptionIndex +1) {
-} else{ 
-    startButton.innerText = 'restart'
-    startButton.classList.remove('hide')
-}
-
- function setStatusClass(element, correct){
-    clearStatusClass(element)
-    if (correct) {
-    element.classList.add('correct')
-    } else {
-    element.classList.add('wrong') 
-    }
-}
-
-function clearStatusClass(element, correct){
-    clearStatusClass(element)
-    if (correct) {
-    element.classList.remove('correct')
-    } else {
-    element.classList.remove('wrong')
-    }
-}
- 
-const options = [
+let currentQuestion ={}
+let acceptingAnswers = true
+let score =0
+let questionCounter =0
+let availableQuestions =[]
+//some where in here I need to add the timer -10 for wrong answers
+let questions =[
 {
-    option: 'abcde',
-        Answers: [
-        {text: 'option1', correct: true},
-        {text: 'option2', correct: false }
-            ]
-        }
-    ]
-//questions list
-const response =confirm("Would you like lowercase letters in your password?");
-if (response){
-correctAnswer = correctAnswer();
+question: 'What Is The National Animal Of Scotland?', //this refs the line 36 in the game.html.  Also since this is an array you need commas after every option
+    optionsText1: 'Scottish Cow', //this section refs lines 41,46,51,56 of the game.HTML
+    optionsButtons2:'Unicorn',
+    optionsButtons3: 'Goat',
+    optionsButtons4: 'Magpie',
+    answer2:'unicorn', 
+},
+{
+    question: 'What animal can not stick out their tongue?',
+    optionsButtons1: 'Owl',
+    optionsButtons2:'Zebra',
+    optionsButtons3: 'Crocodiles',
+    optionsButtons4: 'Otter',
+    answer3:'Crocodiles,'
+},
+{
+    question: 'Which Mammal Has The Most Powerful Bite In The World?',
+    optionsButtons1: 'Hippopotamus',
+    optionsButtons2:'Pit Bull',
+    optionsButtons3: 'Lion',
+    optionsButtons4: 'Shark',
+    answer1:'Hippopotamus',
+},
+{
+    question: 'What Is Fastest Land Animal?',
+    optionsButtons1: 'Springbok',
+    optionsButtons2: 'Sloth',
+    optionsButtons3: 'Cheetah',
+    optionsButtons4: 'Ostrich',
+    answer3:'Cheetah,'
+},
+]
+const SCORE_POINTS = 100 //capitalized so it is know as a fixed point
+const MAX_Questions = 4 // this might change based up time 
+
+// this is the beginning of the game function coding. 
+//Here  is where all the array's and consts that we made are going to start to be used.
+startQuiz = {} => {  
+    questionCounter = 0
+    score = 0
+    availableQuestions = [...questions] // here is where you get all the questions in the array
+    getNewQuestion()
 }
+//call  out to the getNewQuestions
