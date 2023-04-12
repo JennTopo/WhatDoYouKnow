@@ -1,23 +1,24 @@
 /* here is where the HomePage CSS coding is found*/
 :root{
-    background-color: rgb(29,26,26);
+    background-image:url(texture.jpg);
 }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 62.5%;
+    font-size: 50%;
+    
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h1 {
 font-size: 5.4rem;
-color:white;
+color:rgb(209, 137, 29);
 margin-bottom: 5rem;
 }
 
 h2{
-    font-size: 4.2rem;
+    font-size: 20px;
     margin-bottom: 4rem;
 }
 
@@ -60,13 +61,13 @@ h2{
     margin-bottom: 1rem;
     text-decoration: none;
     color: rgb(28, 26, 26);
-    background: linear-gradient(90deg,rgb(18,93,255)0%, rgb(0,10,255) 100%);
+    background: linear-gradient(90deg,rgb(21, 155, 54)0%, rgb(7, 109, 29) 100%);
     border-radius: 6px;
 }
 /* some elements might remove because not necessary*/
 .button:hover{
     cursor: pointer;
-    box-shadow: 0 0 4rem, 1.4rem 0 rgba(8,114,244,0.6);
+    box-shadow: 0 0 4rem, 1.4rem 0 rgba(8, 117, 18, 0.6);
     transition: transform 150ms;
     transform: scale(1.03);
 }
