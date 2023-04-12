@@ -1,15 +1,14 @@
 /* here is where the quiz page CSS coding will be found*/
 /* this coding from top to next notes is all for the option buttons */
-body{
-color:white;
-}
+ body{
+background-image:url(textureB.jpg);}
 
 .optionsButtons {
     display:flex;
     margin-bottom: 0.8rem;
     width:100%;
     border-radius: 6px;
-    background: rgb(18,93,255);
+    background: rgb(38, 177, 187);
     font-size: 3rem;
     min-width: 80rem;
 }
@@ -45,7 +44,7 @@ color:white;
  }
 
 .hud-prefix {
-    text-align: center;
+    text-align: left;
     font-size: 2rem;
 /* this needs to be hidden but not sure how */
 }
@@ -76,9 +75,13 @@ color:white;
     margin-top:2rem;
     border-radius: 50px;
 }
+/* this is part of the form */
+.placeholder
 
+{
 @media screen and (max-width:760px){
     .optionsButtons{
         min-width: 40rem;
     }
+}
 }
