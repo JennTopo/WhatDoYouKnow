@@ -14,33 +14,33 @@ let questions =[
 {
 question: 'What Is The National Animal Of Scotland?', //this refs the line 36 in the game.html.  Also since this is an array you need commas after every option
     optionsText1: 'Scottish Cow', //this section refs lines 41,46,51,56 of the game.HTML
-    optionsButtons2:'Unicorn',
-    optionsButtons3: 'Goat',
-    optionsButtons4: 'Magpie',
+    optionsText2:'Unicorn',
+    optionsText3: 'Goat',
+    optionsText4: 'Magpie',
     answer2:'unicorn', 
 },
 {
     question: 'What animal can not stick out their tongue?',
-    optionsButtons1: 'Owl',
-    optionsButtons2:'Zebra',
-    optionsButtons3: 'Crocodiles',
-    optionsButtons4: 'Otter',
+    optionsText1: 'Owl',
+    optionsText2:'Zebra',
+    optionsText3: 'Crocodiles',
+    optionsText4: 'Otter',
     answer3:'Crocodiles,'
 },
 {
     question: 'Which Mammal Has The Most Powerful Bite In The World?',
-    optionsButtons1: 'Hippopotamus',
-    optionsButtons2:'Pit Bull',
-    optionsButtons3: 'Lion',
-    optionsButtons4: 'Shark',
+    optionsText: 'Hippopotamus',
+    optionsText2:'Pit Bull',
+    optionsText3: 'Lion',
+    optionsText4: 'Shark',
     answer1:'Hippopotamus',
 },
 {
     question: 'What Is Fastest Land Animal?',
-    optionsButtons1: 'Springbok',
-    optionsButtons2: 'Sloth',
-    optionsButtons3: 'Cheetah',
-    optionsButtons4: 'Ostrich',
+    optionsText1: 'Springbok',
+    optionsText2: 'Sloth',
+    optionsText3: 'Cheetah',
+    optionsText4: 'Ostrich',
     answer3:'Cheetah,'
 },
 ]
@@ -71,3 +71,6 @@ progressBarFull.style.width = On((questionCounter/MAX_QUESTIONS) * 100%) // this
 const questionIndex = Math.floor(Math, random() * availableQuestions.length) // this is the randomizer
 currentQuestion = availableQuestions(questionIndex) // this keeps track of which question we are being asked 
 question.InnerText = currentQuestion.question // this is what question is being asked 
+
+options.fourEach(options) =>{
+    cons 
