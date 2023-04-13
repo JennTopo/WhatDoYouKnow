@@ -1,10 +1,8 @@
 //All of these statements are const because they are not going to change their value. 
 const question = document.querySelector('#question'); // this refs line 36 in the game.html//
 const options = Array.from (document.querySelectorAll('optionsText'));// this refs lines 41,46,51,56 of the game.HTML
-const progressText = document.querySelector('#progressText');//this refs line 20 in the game.html
 const scoreText = document.querySelector("#score"); //this ref the line 32 in the game.html
-const progressBarFull = document.querySelector('#progressBarFull'); //this refs the line 24 in the game.html
-const timeEL = document.getElementById('countdown');//this refers to the timer (NEEDS to be added to the HTML)
+const timerEL = document.getElementById('countdown');//this refers to the timer (NEEDS to be added to the HTML)
 
 //these are let statements they allow the element to given a value. ie: boolean, string, number
 let currentQuestion ={}
@@ -18,18 +16,18 @@ let availableQuestions =[]
 
 //Timer countdown 
 function countdown() {
-    timeEL = 30
+    timerEL = 30
 }
 let msgInterval = setInterval ('30')
 if (timeLeft > 1) {
-    timerEl.textContent = timeLeft + ' seconds remaining' timeLeft
+    timerEL.textContent = timeLeft + 'seconds remaining' >timeLeft
 } 
 else 
 { if (timeLeft === 1) 
     {
-    timerEl.textContent = timeLeft + ' second remaining' timeLeft
+    timerEL.textContent = timeLeft + ' second remaining'>timeLeft
   } else { 
-    timerEl.textContent = 'GAME OVER'
+    timerEL.textContent = 'GAME OVER'
     clearInterval(timeInterval)
 }
 }
@@ -91,9 +89,6 @@ getNewQuestion =() =>{
 }
 }
 questionCounter++
-progressText.InnerText = document.querySelector.question(questionCounter),document.querySelector(MAX_QUESTIONS)
-//progressBarFull.style.width = On('click'(questionCounter/MAX_QUESTIONS) * 100%) // this line will add up how many questions were answered and calculates the score
-
 const questionIndex = Math.floor(Math, random() * availableQuestions.length) // this is the randomizer (same on I used in my FingerPrintDynamo Repo)
 console.log(options[questionIndex]);
 console.log(question);
