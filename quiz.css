@@ -6,18 +6,18 @@ background-image:url(textureB.jpg);}
 .optionsButtons {
     display:flex;
     margin-bottom: 0.8rem;
-    width:100%;
+    width:80px%;
     border-radius: 6px;
     background: rgb(38, 177, 187);
     font-size: 3rem;
-    min-width: 80rem;
+    min-width: 80px;
 }
 
 .optionsButtons:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(6,103,247,0.5);
     transform: scale(1.02);
-    transform: transform 100ms;
+    transform: transform 80ms;
  }
 
 .optionsPrefix {
@@ -27,7 +27,7 @@ background-image:url(textureB.jpg);}
 
 .optionsText {
     padding: 2rem;
-    width: 100%;
+    width: 50%;
 }
 
 .correct{
@@ -38,43 +38,7 @@ background-image:url(textureB.jpg);}
     background: linear-gradient(32deg, rgba(230,29,29,1) 0% rgb(224,11,11,1)100%);
 }
 /* this is where the score board and timer will go */
-#hud {
-    display: flex;
-    justify-content: space-between;
- }
 
-.hud-prefix {
-    text-align: left;
-    font-size: 2rem;
-/* this needs to be hidden but not sure how */
-}
-
-.hud-main-text {
-    display: flex;
-    text-align: center;
-}
-
-#progressBar {
-    width: 20rem;
-    height: 3rem;
-    border: 0.2rem solid rgb(11,223,36);
-    margin-top:2rem;
-    border-radius: 50px;
-    overflow: hidden;
-}
-
-#progressBarFull {
-    height: 100%;
-    background:rgb(11,223,36);
-    width: 0%;
-}
-
-#progressText {
-    width: 20rem;
-    height: 3rem;
-    margin-top:2rem;
-    border-radius: 50px;
-}
 /* this is part of the form */
 .placeholder
 
