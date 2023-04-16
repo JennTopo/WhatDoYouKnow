@@ -1,142 +1,125 @@
-//All of these statements are const because they are not going to change their value. 
-const question = document.getElementById('question'); // this refs line 32 in the game.html//
-const options = Array.from (document.querySelectorAll('optionsText'));// this refs lines 33-36 of the game.HTML
-const scoreText = document.querySelector("#score"); //this ref the line 26 in the game.html
-const timerEL = document.getElementById('countdown');//this refers to the timer on lines 18-22 in game.html
+const questions = [
+    {
+        question: "What Is The National Animal Of Scotland?",
+        answers: [
+            { text: "Scottish Cow", correct: false },
+            { text: "Unicorn", correct: true },
+            { text: "Goat", correct: false },
+            { text: "Magpie", correct: false },
+        ]
+    },
+    {
+        question: 'What animal can not stick out their tongue?',
+        answers: [
+            { text: 'Owl', correct: false },
+            { text: 'Zebra', correct: false },
+            { text: 'Crocodiles', correct: true },
+            { text: 'Otter', correct: false },
+        ]
+    },
+    {
+        question: 'What Is Fastest Land Animal?',
+        answers: [
+            { text: 'Springbok', correct: false },
+            { text: 'Sloth', correct: false },
+            { text: 'Cheetah', correct: true },
+            { text: 'Ostrich', correct: false },
+        ]
+    }
+]
 
-//these are let statements they allow the element to given a value. ie: boolean, string, number
-let currentQuestion ={}
-let acceptingAnswers = true
-let timer = ('100ms')
-let wrongAnswer = ('- 10ms')
-let name = ('input[name=]')
-let score =0
-let questionCounter =0
-let availableQuestions =[]
-let timeLeft = 
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-buttons");
+const answerButtonWrong = document.getElementById("answer-button-wrong");
+const timerEl = document.getElementById("countdown");
+const scoreText = document.querySelector("score");
 
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() { }
+currentQuestionIndex = 0;
+score = 0;
+showQuestion();
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = question[currentQuestionIndex]
+    let questionsNo = currentQuestionIndex + 1;
+    questionElement.innerHTML.questionNo + "." + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButton.appendChild(button);
+        if (answer.correct) {
+            (button.dataset.correct);
+        }
+        button.addEventListener("click", selectedAnswer);
+    });
+}
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButton.removeChild(answerButtons.firstChild);
+    }
+}
+function selectedAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+    } else {
+        selectedBtn.classList.add("wrong");
+    }
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disable = true;
+    });
+    nextButton.style.display = "block";
+}
+function showScore() {
+    resetState();
+    questionElement.innerHTML = 'you scored ${score} out of ${questions.length}!';
+    nextButton.innerHTML = "Play Again";
+    nextButton.style.display = block;
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        startQuiz();
+    }
+})
 //Timer countdown 
+const timerEL = document.getElementById('countdown');//this refers to the timer (NEEDS to be added to the HTML)
+
 function countdown() {
     timerEL = 30
 }
-let msgInterval = setInterval ('30')
+let msgInterval = setInterval('30')
 if (timeLeft > 1) {
-    timerEL.textContent = timeLeft + 'seconds remaining' >timeLeft
-} 
-else 
-{ if (timeLeft === 1) 
-    {
-    timerEL.textContent = timeLeft + ' second remaining'>timeLeft
-  } else { 
+    timerEL.textContent = timeLeft + 'seconds remaining' > timeLeft
+} else {
+}
+if (timeLeft === 1) {
+    timerEL.textContent = timeLeft + 'second remaining' > timeLeft
+} else {
     timerEL.textContent = 'GAME OVER'
     clearInterval(timeInterval)
+    startQuiz();
 }
-}
-
-//some where in here I need to add the timer -10 for wrong answers
-// here all all the questions and answers w/o  any action yet
-let questions =[
-{
-question: 'What Is The National Animal Of Scotland?', //this refs the line 32 in the game.html.  Also since this is an array you need commas after every option
-    optionsText1: 'Scottish Cow', //this section refs lines 33-37 of the game.HTML
-    optionsText2:'Unicorn',
-    optionsText3: 'Goat',
-    optionsText4: 'Magpie',
-    answer2:'unicorn', 
-},
-{
-    question: 'What animal can not stick out their tongue?',
-    optionsText1: 'Owl',
-    optionsText2:'Zebra',
-    optionsText3: 'Crocodiles',
-    optionsText4: 'Otter',
-    answer3:'Crocodiles,'
-},
-{
-    question: 'Which Mammal Has The Most Powerful Bite In The World?',
-    optionsText: 'Hippopotamus',
-    optionsText2:'Pit Bull',
-    optionsText3: 'Lion',
-    optionsText4: 'Shark',
-    answer1:'Hippopotamus',
-},
-{
-    question: 'What Is Fastest Land Animal?',
-    optionsText1: 'Springbok',
-    optionsText2: 'Sloth',
-    optionsText3: 'Cheetah',
-    optionsText4: 'Ostrich',
-    answer3:'Cheetah,'
-},
-]
-//const SCORE_POINTS = 100 //capitalized so it is know as a fixed point
-//const MAX_Questions = 4 // this might change based up time 
-
-/*this is the beginning of the game function coding. 
-Here is where all the array's and const, that we made are going to start to be used.*/
-startQuiz = () => {  
-    questionCounter = 0 // here is where all the elements on the screen are visible
-//    score = 0
-    availableQuestions = [...questions] // here is where you get all the questions in the array
-    getNewQuestion()
-}
-//call out to the getNewQuestions
-getNewQuestion =() =>{
-    if (availableQuestions.length ===0 || questionCounter > MAX_QUESTIONS) 
-{
-        localStorage.setItem('mostRecentScore,')
-        return window.location.assign('/end.html')
-// here is where I need to add the coding for the minus 10 clock also maybe add the right answer if they answer wrong        
-}
-}
-questionCounter++;
-const questionIndex = Math.floor(Math.random() * availableQuestions.length) // this is the randomizer (same on I used in my FingerPrintDynamo Repo)
-// console.log(options[questionIndex]);
-// console.log(question);
-currentQuestion = availableQuestions[questionIndex] // this keeps track of which question we are being asked
-questionText.textContent = 'This is the question'
-// I do not know what this is linking to had to stop here for now 
-options.forEach((options) => {
-    const number = options.dataset[number] // here is where the quiz knows which option button you selected. Refers to lines 41,46,51,56 of the game.HTML
-    console.log(optionsButtons)[number]
-    options.InnerText = currentQuestion ['option' + number] // this statement calls out to line 74 in script.js
-});
-/*below here are the if / else statements. I have been trying to look up how to replace an element with out fully removing it and the other day in class a student mentioned splicing. Didn't know 
-what that was so I looked it up*/
-availableQuestions.splice(questionIndex, 1) // by splicing we are Removing elements from an array and, replacing them with new elements in their place, returning the deleted elements.
-// also above line to code calls out to line 
-acceptingAnswers = true /* this is a boolean. which is showing if all coding is correct the choose 
-answer */
-
-/*below is now calling out to the actual action of what happens after you GetOptions 
-this selection calls out to the Answer portion of the coding in lines 26,34,42,50 of the script.js 
-Wrong answers*/
-options.forEach(options =>{ 
-options.addEventListener('click',e=>{ // to get it to do a function we have to addEventListener
-        if (!acceptingAnswers) // this statement says if NOT"(!)"" the right answer then ... The "(!)" we learned in class which means NOT  
-      return
-
-       acceptingAnswers = false
-       const selectedOptions = e.target
-       const selectedAnswer = selectedOptions.dataset['number']
-   //    alert("not correct Try agin You have just lost -10 seconds.Please try again Thank you.");
-
-       //here is the score board / timer replacement
-       let classToApply = selectedAnswer===currentQuestion.answer ?'correct' : 'wrong'
-      
-       if (classToApply ==='correct'){
-//        incrementScore(SCORE_POINTS)
-}
-
-selectedOptions.parentElement.classList.add(classToApply)
-
-setTimeOut(() => {
-    selectedOptions.parentElement.classList.remove(classToApply)
-    getNewQuestion()
-        }, 1000);
-    })
-})
-incrementScore = num => {
-    score += numScoreText = score
-}
-startGame()
