@@ -1,3 +1,5 @@
+console.log("helloWorld");
+
 const questions = [
     {
         question: "What Is The National Animal Of Scotland?",
@@ -31,7 +33,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-buttons");
 const answerButtonWrong = document.getElementById("answer-button-wrong");
-const timerEl = document.getElementById("countdown");
+const timerEl = document.getElementById("countDown");
 const scoreText = document.querySelector("score");
 
 let currentQuestionIndex = 0;
@@ -40,78 +42,85 @@ let score = 0;
 function startQuiz() { }
 currentQuestionIndex = 0;
 score = 0;
-showQuestion();
 
 function showQuestion() {
-    resetState();
-    let currentQuestion = question[currentQuestionIndex]
+  //  resetState();
+    let currentQuestion = questions[currentQuestionIndex]
+    console.log(currentQuestion.question)
     let questionsNo = currentQuestionIndex + 1;
+    console.log(questionsNo.currentQuestionIndex)
     questionElement.innerHTML.questionNo + "." + currentQuestion.question;
+    console.log(questionElement.innerHTML)
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
+        
         button.innerHTML = answer.text;
-        button.classList.add("btn");
+        button.classList.add("button");
         answerButton.appendChild(button);
         if (answer.correct) {
             (button.dataset.correct);
         }
-        button.addEventListener("click", selectedAnswer);
+    //    button.addEventListener("click", selectedAnswer);
     });
 }
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButton.removeChild(answerButtons.firstChild);
-    }
-}
-function selectedAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        score++;
-    } else {
-        selectedBtn.classList.add("wrong");
-    }
+showQuestion();
+//function resetState() {
+//     nextButton.style.display = "none";
+//     while (answerButtons.firstChild) {
+//         answerButton.removeChild(answerButtons.firstChild);
+//     }
+// }
+// function selectedAnswer(e) {
+//     const selectedBtn = e.target;
+//     const isCorrect = selectedBtn.dataset.correct === "true";
+//     if (isCorrect) {
+//         selectedBtn.classList.add("correct");
+//         score++;
+//     } else {
+//         selectedBtn.classList.add("wrong");
+//     }
 
     Array.from(answerButtons.children).forEach(button => {
+       console.log(currentQuestion.question)
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
         button.disable = true;
     });
-    nextButton.style.display = "block";
-}
-function showScore() {
-    resetState();
-    questionElement.innerHTML = 'you scored ${score} out of ${questions.length}!';
-    nextButton.innerHTML = "Play Again";
-    nextButton.style.display = block;
-}
+//     nextButton.style.display = "block";
+// }
+// function showScore() {
+//     resetState();
+//     questionElement.innerHTML = 'you scored ${score} out of ${questions.length}!';
+//     nextButton.innerHTML = "Play Again";
+//     nextButton.style.display = block;
+// }
 
-function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
-}
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
-    } else {
-        startQuiz();
-    }
-})
+// function handleNextButton() {
+//     currentQuestionIndex++;
+//     if (currentQuestionIndex < questions.length) {
+//         showQuestion();
+//     } else {
+//         showScore();
+//     }
+// }
+// nextButton.addEventListener("click", () => {
+//     if (currentQuestionIndex < questions.length) {
+//         handleNextButton();
+//     } else {
+//         startQuiz();
+//     }
+// })
 //Timer countdown 
 const timerEL = document.getElementById('countdown');//this refers to the timer (NEEDS to be added to the HTML)
+let timeLeft= 1000>1 
 
 function countdown() {
-    timerEL = 30
+    setInterval("countdown", 1000);
 }
-let msgInterval = setInterval('30')
+
+let msgInterval = setInterval('1000')
 if (timeLeft > 1) {
     timerEL.textContent = timeLeft + 'seconds remaining' > timeLeft
 } else {
