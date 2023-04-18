@@ -27,6 +27,15 @@ const questions = [
             { text: 'Cheetah', correct: true },
             { text: 'Ostrich', correct: false },
         ]
+    },
+{ 
+        question: 'Where do flying lizards (Draco) live?',
+        answers: [
+            { text: 'Dessert', correct: false },
+            { text: 'Ocean', correct: false },
+            { text: 'Arctic', correct: false },
+            { text: 'Rain Forest', correct: true },
+        ]
     }
 ]
 
@@ -67,10 +76,11 @@ function showQuestion() {
 
         if (answer.correct) {
             (button.dataset.correct = "true");
-        }
+           }
         button.addEventListener("click", selectedAnswer);
         position++
     });
+
 }
 // function container()
 //     container = (currentQuestionIndex,buttons)
@@ -104,7 +114,7 @@ function selectedAnswer(e) {
         selectedBtn.classList.add("wrong");
         timeLeft-10;
     }
-debugger;
+// debugger;
     setTimeout(function(){
         currentQuestionIndex++
         showQuestion()
@@ -112,33 +122,9 @@ debugger;
   
     //     nextButton.style.display = "block";
 }
-// function showScore() {
-//     resetState();
-//     questionElement.innerHTML = 'you scored ${score} out of ${questions.length}!';
-//     nextButton.innerHTML = "Play Again";
-//     nextButton.style.display = block;
-// }
 
-// function handleNextButton() {
-//     currentQuestionIndex++;
-//     if (currentQuestionIndex < questions.length) {
-//         showQuestion();
-//     } else {
-//         showScore();
-//     }
-// }
-// nextButton.addEventListener("click", () => {
-//     if (currentQuestionIndex < questions.length) {
-//         handleNextButton();
-//     } else {
-//         startQuiz();
-//     }
-// })
 //Timer countdown 
 let timerEL = document.getElementById('countdown');//this refers to the timer (NEEDS to be added to the HTML)
-
-
-
 
 let msgInterval = function () {
     console.log(timeLeft)
@@ -151,6 +137,7 @@ let msgInterval = function () {
     } else {
         timerEL.textContent = 'GAME OVER'
         clearInterval(countdown);
+        clearInterval("answerButton");
         startQuiz();
     }
 }
@@ -165,3 +152,4 @@ if(timeLeft <= 0){
 }
 
 countdown()
+
