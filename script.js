@@ -26,7 +26,7 @@ const questions = [
             { text: 'Ostrich', correct: false },
         ]
     },
-{ 
+    {
         question: 'Where do flying lizards (Draco) live?',
         answers: [
             { text: 'Dessert', correct: false },
@@ -34,7 +34,26 @@ const questions = [
             { text: 'Arctic', correct: false },
             { text: 'Rain Forest', correct: true },
         ]
+    },
+    {
+        question: 'What animal can live anywhere?',
+        answers: [
+            { text: 'Cockroach', correct: false },
+            { text: 'Tardigrade', correct: true },
+            { text: 'Mouse', correct: false },
+            { text: 'Bear', correct: false },
+        ]
+    },
+    {
+        question: 'What bird had the largest wingspan?',
+        answers: [
+            { text: 'Eagle', correct: false },
+            { text: 'Hawk', correct: false },
+            { text: 'Falcon', correct: false },
+            { text: 'Albatross', correct: true },
+        ]
     }
+    
 ]
 
 const questionElement = document.getElementById("question");
@@ -51,7 +70,7 @@ function startQuiz() {
 currentQuestionIndex = 0;
 score = 0;
 
-let timeLeft = 60;
+let timeLeft = 40;
 
 function showQuestion() {
     //  resetState();
@@ -74,7 +93,7 @@ function showQuestion() {
 
         if (answer.correct) {
             (button.dataset.correct = "true");
-           }
+        }
         button.addEventListener("click", selectedAnswer);
         position++
     });
@@ -103,12 +122,12 @@ function selectedAnswer(e) {
         selectedBtn.classList.add("wrong");
         timeLeft = timeLeft - 10;
     }
-// debugger;
-    setTimeout(function(){
+    // debugger;
+    setTimeout(function () {
         currentQuestionIndex++
         showQuestion()
-    },2000)
-  
+    }, 2000)
+
     //     nextButton.style.display = "block";
 }
 
@@ -120,7 +139,7 @@ let msgInterval = function () {
     timeLeft--;
     if (timeLeft > 1) {
         timerEL.textContent = timeLeft + ' seconds remaining'
-    } 
+    }
     else if (timeLeft === 1) {
         timerEL.textContent = timeLeft + ' second remaining'
     } else {
@@ -133,10 +152,10 @@ let msgInterval = function () {
 
 function countdown() {
     setInterval(msgInterval, 1000);
-   
+
 }
 
-if(timeLeft <= 0){
+if (timeLeft <= 0) {
     clearInterval(countdown)
 }
 
