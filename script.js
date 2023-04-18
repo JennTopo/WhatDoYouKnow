@@ -86,15 +86,6 @@ function showQuestion() {
 
 showQuestion();
 
-
-
-
-//function resetState() {
-//     nextButton.style.display = "none";
-//     while (answerButtons.firstChild) {
-//         answerButton.removeChild(answerButtons.firstChild);
-//     }
-//}
 function selectedAnswer(e) {
     const selectedBtn = e.target;
     let isCorrect = selectedBtn.dataset.correct === "true";
@@ -110,7 +101,7 @@ function selectedAnswer(e) {
         console.log(questions[currentQuestionIndex].answers[+(e.target.dataset.position)].correct)
         console.log(console.log(questions[currentQuestionIndex].answers[+(e.target.dataset.position)]))
         selectedBtn.classList.add("wrong");
-        timeLeft-10;
+        timeLeft = timeLeft - 10;
     }
 // debugger;
     setTimeout(function(){
@@ -150,4 +141,9 @@ if(timeLeft <= 0){
 }
 
 countdown()
-
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButton.removeChild(answerButtons.firstChild);
+    }
+}
