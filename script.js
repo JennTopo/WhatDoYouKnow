@@ -1,5 +1,3 @@
-console.log("helloWorld");
-
 const questions = [
     {
         question: "What Is The National Animal Of Scotland?",
