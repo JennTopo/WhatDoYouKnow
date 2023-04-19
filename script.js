@@ -52,8 +52,8 @@ const questions = [
             { text: 'Falcon', correct: false },
             { text: 'Albatross', correct: true },
         ]
-    }
-    
+    },
+     
 ]
 
 const questionElement = document.getElementById("question");
@@ -144,10 +144,18 @@ let msgInterval = function () {
         timerEL.textContent = timeLeft + ' second remaining'
     } else {
         timerEL.textContent = 'GAME OVER'
-        clearInterval(countdown);
-        clearInterval("answerButton");
-        startQuiz();
-    }
+        quizEnd ();
+    //     clearInterval(countdown);
+    //     clearInterval("answerButton");
+    //     startQuiz();
+    // 
+}
+};
+
+function quizEnd (){
+ clearInterval(countdown);
+ window.location.href = "form.html";
+
 }
 
 function countdown() {
