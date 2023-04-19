@@ -53,7 +53,7 @@ const questions = [
             { text: 'Albatross', correct: true },
         ]
     },
-     
+
 ]
 
 const questionElement = document.getElementById("question");
@@ -99,10 +99,6 @@ function showQuestion() {
     });
 
 }
-// function container()
-//     container = (currentQuestionIndex,buttons)
-// container.addEventListener("click", buttons);
-
 showQuestion();
 
 function selectedAnswer(e) {
@@ -115,20 +111,23 @@ function selectedAnswer(e) {
         score++;
         console.log(score)
         scoreText.innerHTML = score;
-        // debugger;
+
     } else {
         console.log(questions[currentQuestionIndex].answers[+(e.target.dataset.position)].correct)
         console.log(console.log(questions[currentQuestionIndex].answers[+(e.target.dataset.position)]))
         selectedBtn.classList.add("wrong");
         timeLeft = timeLeft - 10;
     }
-    // debugger;
-    setTimeout(function () {
-        currentQuestionIndex++
-        showQuestion()
-    }, 2000)
 
-    //     nextButton.style.display = "block";
+    setTimeout(function () {
+        if (currentQuestionIndex === questions.length - 1) {
+            quizEnd();
+        }
+        else {
+            currentQuestionIndex++
+            showQuestion()
+        }
+    }, 2000)
 }
 
 //Timer countdown 
@@ -144,17 +143,13 @@ let msgInterval = function () {
         timerEL.textContent = timeLeft + ' second remaining'
     } else {
         timerEL.textContent = 'GAME OVER'
-        quizEnd ();
-    //     clearInterval(countdown);
-    //     clearInterval("answerButton");
-    //     startQuiz();
-    // 
-}
+        quizEnd();
+    }
 };
 
-function quizEnd (){
- clearInterval(countdown);
- window.location.href = "form.html";
+function quizEnd() {
+    clearInterval(countdown);
+    window.location.href = "form.html";
 
 }
 
